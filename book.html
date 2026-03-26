@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book || Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script defer src="./index.js"></script>
+    <style>
+       body{
+    background-image:linear-gradient(rgba(2, 2, 2, 0),rgba(0, 0, 0, 0.734)), url(carwash-pic.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    
+       }
+       
+    </style>
+</head>
+<body>
+<nav>
+        <!--Desktop Menu-->
+        <ul>
+            <li><a href="">GM || Wash</a></li>
+            <li class="hideonMobile"><a href="index.html">Home</a></li>
+            <li class="hideonMobile"><a href="about.html">About</a></li>
+            <li class="hideonMobile"><a href="contact.html">Contact</a></li>
+            <li class="menu-button" onclick="showsidebar()">
+                <a href="#" class="img-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+        
+        <!-- Mobile Sidebar -->
+        <ul class="sidebar" id="sidebar">
+            <li onclick="hidesidebar()">
+                <a href="#" class="img-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    </svg>
+                </a>
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+<br>
+    <div class="container">
+       
+        <div class="right-panel">
+            <div class="book-info">
+            <h2>Booking Information</h2>
+            <p class="subtitle">Fill in the details below to book your car wash</p>
+            </div>
+
+            <form id="bookingForm" method="POST" action="connect.php">
+    <div class="form-section">
+        <div class="section-title"></div>
+
+        <div class="form-group">
+            <label for="fullName">Full Name </label>
+            <input type="text" id="fullName" name="fullName" required >
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address </label>
+            <input type="email" id="email" name="email" placeholder="e.g., giftmbooza38@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Mobile Phone </label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g.., 0977928728" required>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Vehicle Information</div>
+
+        <div class="form-group">
+            <label for="carReg">Car Registration </label>
+            <input type="text" id="carReg" name="carReg" placeholder="AIF 1392" >
+        </div>
+
+        <div class="form-group">
+            <label for="carMake">Car Make & Model </label>
+            <input type="text" id="carMake" name="carMake" placeholder="e.g, Toyota Corolla" required>
+        </div>
+
+        <div class="form-group">
+            <label>Vehicle Type </label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="sedan" name="vehicleType" value="sedan" required>
+                    <label for="sedan">Sedan</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="suv" name="vehicleType" value="suv" required>
+                    <label for="suv">SUV/4x4</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="bakkie" name="vehicleType" value="bakkie" required>
+                    <label for="bakkie">Bakkie</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="van" name="vehicleType" value="van" required>
+                    <label for="van">Van</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Service Selection</div>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <label>
+                    <input type="checkbox" name="service" value="premium" required>
+                    <div>
+                        <strong>Interior Detailing</strong>
+                        <span class="service-price">k50.00</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="service-card">
+                <label>
+                    <input type="checkbox" name="service" value="deluxe" required>
+                    <div>
+                        <strong>Engine Detailing</strong>
+                        <span class="service-price">K80.00</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="service-card">
+                <label>
+                    <input type="checkbox" name="service" value="interior" required>
+                    <div>
+                        <strong>Exterior Wash</strong>
+                        <span class="service-price">K120.00</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="service-card">
+                <label>
+                    <input type="checkbox" name="service" value="wax" required>
+                    <div>
+                        <strong>Wax & Polish</strong>
+                        <span class="service-price">K30</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Booking Details</div>
+
+        <div class="form-group">
+            <label for="bookingDate">Preferred Date </label>
+            <input type="date" id="bookingDate" name="bookingDate" required>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-submit">Book Now</button>
+    
+    <p id="formMessage" style="color: red; margin-top: 15px; font-weight: bold;"></p>
+</form>
+        </div>
+    </div>
+
+    <footer>
+    <div class="footercontainer">
+        <div class="socielicon">
+            <a href=""><i class="fa-brands fa-facebook" ></i></a>
+            <a href=""><i class="fa-brands fa-instagram" ></i></a>
+            <a href=""><i class="fa-brands fa-youtube" ></i></a>
+            <a href=""><i class="fa-brands fa-twitter" ></i></a>
+        </div>
+
+    </div>
+    <div class="footerbottom">
+            <p>Copyright &copy;2025; Developed By <span class="developer"> Gift Mbooza</span></p>
+        </div>
+</footer>
+
+
+
+<script>
+
+const bookingForm = document.getElementById('bookingForm'); /
+    const formMessage = document.getElementById('formMessage');
+
+    function displayError(message) {
+        formMessage.textContent = message;
+        
+        formMessage.style.display = 'block';
+        formMessage.style.color = 'red'; 
+    }
+
+    function clearError() {
+        formMessage.textContent = '';
+        formMessage.style.display = 'none';
+    }
+
+    // Function to check if at least one checkbox is selected
+    function isServiceSelected() {
+        const services = document.querySelectorAll('input[name="service"]:checked');
+        return services.length > 0;
+    }
+
+    // Function to check if the booking date is in the future
+    function isDateValid(dateString) {
+        const selectedDate = new Date(dateString);
+        const today = new Date();
+
+        today.setHours(0, 0, 0, 0); 
+        
+        return selectedDate >= today;
+    }
+
+    //  ERROR FIXED HERE: Changed 'form' to 'bookingForm' 
+    bookingForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Stop the form from submitting initially
+        
+        // 1. Get Input Values 
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const carReg = document.getElementById('carReg').value.trim();
+        const carMake = document.getElementById('carMake').value.trim();
+        const bookingDate = document.getElementById('bookingDate').value;
+
+        let isValid = true;
+        clearError();
+
+        // 2. Validation Checks
+        
+        // A. Basic Field Empty Check (covers all text/email/tel inputs)
+        if (fullName === '' || email === '' || phone === '' || carReg === '' || carMake === '' || bookingDate === '') {
+            displayError('🚨 Please ensure all required text fields are filled out.');
+            isValid = false;
+        }
+
+        // B. Full Name Length Check
+        if (isValid && fullName.length < 3) {
+            displayError('🚨 Full Name must be at least 3 characters long.');
+            isValid = false;
+        }
+
+        // C. Email Format Check
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (isValid && !emailRegex.test(email)) {
+            displayError('🚨 Please enter a valid email address.');
+            isValid = false;
+        }
+        
+        // D. Phone Number Check (Simple digit/length check)
+        const phoneRegex = /^\d{8,15}$/;
+        if (isValid && !phoneRegex.test(phone)) {
+            displayError('🚨 Please enter a valid phone number (8-15 digits expected).');
+            isValid = false;
+        }
+
+        // E. Vehicle Type Check (Required attribute helps, but this confirms radio button groups)
+        const vehicleTypeSelected = document.querySelector('input[name="vehicleType"]:checked');
+        if (isValid && !vehicleTypeSelected) {
+            displayError('🚨 Please select a Vehicle Type.');
+            isValid = false;
+        }
+
+        // F. Service Selection Check (Must choose at least one service)
+        if (isValid && !isServiceSelected()) {
+            displayError('🚨 You must select at least one Service.');
+            isValid = false;
+        }
+        
+        // G. Booking Date Check (Must be today or a future date)
+        if (isValid && !isDateValid(bookingDate)) {
+            displayError('🚨 The booking date cannot be in the past.');
+            isValid = false;
+        }
+
+        if (isValid) {
+           
+            formMessage.textContent = 'Booking in progress...';
+            formMessage.style.color = 'green';
+            
+           
+            bookingForm.submit();
+        }
+    });
+ 
+</script>
+
+<script src="index.js"></script>
+
+</body>
+</html>

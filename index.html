@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GM || Car Wash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.section{
+    background-image:linear-gradient(rgba(2, 2, 2, 0.24),rgba(0, 0, 0, 0.24)), url(carwash-pic.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+}
+nav{
+    position: fixed;
+    top: 0;
+    margin: auto;
+    background-color: #3333334a;
+    width: 100%;
+    z-index: 999;
+}
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav li {
+    height: 50px;
+}
+nav a{
+    height: 100%;
+    padding: 0px 30px;
+    text-decoration: none;
+    display: flex;
+    font-size: 21px;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.955);
+}
+nav a:hover{
+    background-color: rgb(129, 129, 129);
+    transition: 0.3s;
+}
+nav li:first-child{
+    margin-right: auto;
+    font-weight: 700;
+    font-size: 40px;
+}
+.menu-button{
+    display: none;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: -250px; 
+    height: 100vh;
+    width: 250px;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    background-color: rgba(29, 29, 29, 0.43);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 20px;
+    transition: right 0.3s ease-in-out;
+}
+.sidebar.active{
+    right: 0;
+}
+.sidebar li{
+    width: 100%;
+    list-style: none;
+}
+.sidebar a{
+    width: 100%;
+    padding: 15px 30px;
+}
+.sidebar li:first-child{
+    margin-right: 0;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+@media(max-width: 800px){
+    .hideonMobile{
+        display: none;
+    }   
+    .menu-button{
+        display: flex;
+    }
+    nav li:first-child a{
+        font-size: 28px;
+        padding: 0 15px;
+    }
+}
+.intr-part{
+    margin-left: 65px;
+    padding-top: 150px;
+}
+.book-now-btn{
+    width: 20%;
+    min-width: 150px;
+    padding: 16px;
+    background: linear-gradient(135deg, #b46cd5 0%, #6d02c4 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 23px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 20px;
+}
+.book-now-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(109, 2, 196, 0.4);
+}
+h1{
+    font-size: 68px;
+    color: rgba(255, 255, 255, 0.955);
+}
+h4{
+    color: rgba(255, 255, 255, 0.955);
+    font-size: 40px;
+    margin-top: 10px;
+}
+.our-s{
+    text-align: center;
+    font-size: 30px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-weight: 700;
+    color: white;
+}
+.row{
+    background-color: black;
+    padding-bottom: 40px;
+    overflow: auto;
+}
+.colunm{
+    float: left;
+    width: 33.33%;
+    padding: 30px 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 21px;
+    font-size: 16px;
+}
+.colunm img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.the-pro-sev{
+    font-size: 22px;
+    color: rgb(246, 239, 230);
+    margin-top: 15px;
+}
+.price-d{
+    font-size: 18px;
+    color: rgb(246, 239, 230);
+    margin: 10px 0;
+}
+.colunm-detail{
+    font-size: 16px;
+    color: rgb(246, 239, 230);
+    line-height: 1.5;
+}
+
+/* About Sections */
+.about-section {
+    width: 100%;
+    overflow: hidden;
+    padding: 60px 0;
+}
+.about-section.light {
+    background-color: antiquewhite;
+}
+.about-section.dark {
+    background-color: black;
+    color: white;
+}
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+.about-content.reverse {
+    flex-direction: row-reverse;
+}
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+.about-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Testimonials */
+.what-our{
+    max-width: 1300px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+.Clients-w{
+    font-size: 45px;
+    color: #333; 
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+.col-row{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.col{
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+    padding: 40px 30px;
+    text-align: center;
+    line-height: 1.6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.4s;
+}
+.col:hover{
+    transform: translateY(-15px);
+}
+.words{
+    font-size: 18px; 
+    color: #555;
+    margin-bottom: 20px;
+}
+.client-name {
+    font-weight: 600;
+    color: #333; 
+    font-size: 18px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Footer */
+footer{
+    background-color: antiquewhite;
+}
+.footercontainer{
+    width: 100%;
+    padding: 20px 5px;
+}
+.socielicon {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.socielicon a i{
+    font-size: 25px;
+    opacity: 0.9;
+    color: #333;
+}
+.socielicon a{
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.3s;
+}
+.socielicon a:hover{
+    background-color: white;
+    border-radius: 5px;
+}
+.footerbottom{
+    background-color: rgb(187, 173, 173);
+    padding: 20px;
+    text-align: center;
+}
+.footerbottom p{
+    color: white;
+}
+.developer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-content {
+        gap: 30px;
+    }
+    .about-text h2 {
+        font-size: 28px;
+    }
+    .about-text p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 768px) {
+    h1{
+        font-size: 42px;
+        padding-top: 20%;
+    }
+    h4{
+        font-size: 24px;
+    }
+    .intr-part{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .book-now-btn{
+        width: 60%;
+        font-size: 18px;
+        padding: 14px;
+    }
+    .colunm{
+        width: 100%;
+        float: none;
+        padding: 30px 20px;
+    }
+    .our-s{
+        font-size: 26px;
+        padding-top: 30px;
+    }
+    .about-content,
+    .about-content.reverse {
+        flex-direction: column;
+    }
+    .about-image img {
+        height: 300px;
+    }
+    .about-text {
+        text-align: center;
+    }
+    .about-section {
+        padding: 40px 0;
+    }
+    .Clients-w{
+        font-size: 32px;
+    }
+    .col{
+        min-width: 100%;
+    }
+    .words{
+        font-size: 16px;
+    }
+}
+@media (max-width: 480px) {
+    h1{
+        font-size: 32px;
+    }
+    h4{
+        font-size: 20px;
+    }
+    .book-now-btn{
+        width: 80%;
+        font-size: 16px;
+    }
+    nav li:first-child a{
+        font-size: 24px;
+    }
+    .intr-part{
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-top: 120px;
+    }
+    .our-s{
+        font-size: 22px;
+    }
+    .the-pro-sev{
+        font-size: 20px;
+    }
+    .price-d{
+        font-size: 16px;
+    }
+    .colunm-detail{
+        font-size: 15px;
+    }
+    .Clients-w{
+        font-size: 26px;
+    }
+    .about-text h2 {
+        font-size: 24px;
+    }
+    .about-text p {
+        font-size: 15px;
+    }
+    .socielicon a i{
+        font-size: 20px;
+    }
+}
+    </style>
+</head>
+<body> 
+
+<div class="section">
+    <nav>
+        <ul>
+            <li><a href="">GM || Wash</a></li>
+            <li class="hideonMobile"><a href="index.html">Home</a></li>
+            <li class="hideonMobile"><a href="about.html">About</a></li>
+            <li class="hideonMobile"><a href="contact.html">Contact</a></li>
+            <li class="menu-button" onclick="showsidebar()">
+                <a href="#" class="img-icon">
+                    
+                </a>
+            </li>
+        </ul>
+        
+        <ul class="sidebar" id="sidebar">
+            <li onclick="hidesidebar()">
+                <a href="#" class="img-icon">
+                </a>
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="intr-part">
+        <h1>ULTIMATE CAR WASH</h1>
+        <h4>Restore Your Ride's Glory</h4>
+        <a href="book.html"><button class="book-now-btn">Book Now</button></a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="our-serv">
+        <p class="our-s">OUR SERVICES</p>
+    </div>
+   
+    <div class="colunm">
+        <img src="interio.webp" alt="Interior Detailing">
+        <h3 class="the-pro-sev">Interior Detailing</h3>
+        <h5 class="price-d">K50.00</h5>
+        <p class="colunm-detail">We clean and sanitize the entire dashboard, console, door panel, and interior trim.</p>
+    </div>
+
+    <div class="colunm">
+        <img src="engine-wash.jpg" alt="Engine Detailing">
+        <h3 class="the-pro-sev">Engine Detailing</h3>
+        <h5 class="price-d">K80.00</h5>
+        <p class="colunm-detail">We remove dirt and grease without harming your engine's electrical parts.</p>
+    </div>
+
+    <div class="colunm">
+        <img src="exterior-wash.webp" alt="Exterior Wash">
+        <h3 class="the-pro-sev">Exterior Wash</h3> 
+        <h5 class="price-d">K120.00</h5>
+        <p class="colunm-detail">This service includes hand Wax, and Shine Your Tires for a perfect finish</p>        
+    </div>
+</div>
+
+<div class="about-section light">
+    <div class="about-content">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800" alt="What We Offer">
+        </div>
+        <div class="about-text">
+            <h2>WHAT WE OFFER</h2>
+            <p>Driven by an unwavering passion, we are committed to the intricate work of transforming 
+            lackluster or standard daily drivers what many call everyday vehicles into stunning, deeply 
+            protected, and truly gleaming automotive masterpieces that reflect pride and perfection.</p> 
+            <p>We offer a comprehensive range of car wash and detailing services designed to meet your specific needs and budget.</p>
+            <p>Whether your car needs a quick pick me up to look good for the weekend, or requires a serious, 
+            complete restoration to fully renew its condition, we are ready with the perfect, easy to understand 
+            solution that will transform your ride.</p>
+        </div>
+    </div>
+</div>
+
+<div class="about-section dark">
+    <div class="about-content reverse">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=800" alt="Why Choose Us">
+        </div>
+        <div class="about-text">
+            <h2>WHY CHOOSE US</h2>
+            <p>We understand that your car is more than just a mode of transportation. It's an extension of your style, 
+            a symbol of freedom, and maybe even a family member!</p> 
+            <p>Because we are committed to excellence, we always go beyond just a quick wash and wax, providing a truly complete,
+            comprehensive car care experience that involves detailed work on the paint, wheels, and interior a holistic approach
+            to vehicle maintenance that unquestionably sets our results apart.</p>
+        </div>
+    </div>
+</div>
+
+<div class="what-our">
+    <h2 class="Clients-w">What Clients Say</h2>
+    <div class="col-row">
+        <div class="col">
+            <p class="words">Their attention to detail is incredible, and my car looks brand new every time. Plus, the staff is friendly and professional. I highly recommend them!</p>
+            <h3 class="client-name">MR EPHRAIM MUYUNDA</h3>
+        </div>
+
+        <div class="col">
+            <p class="words">I thought my car's interior was beyond saving it looked like a total mess! The detailing team worked miracles, they didn't just clean it, they perfected it. The quality of this service makes it a fantastic investment</p>
+            <h3 class="client-name">MS MWEENGO PHIRI IVY</h3>
+        </div>
+
+        <div class="col">
+            <p class="words">I am amazed! They brought my vehicle back to life. The exterior shine is blinding, and the interior is flawless—they missed absolutely nothing. It's not just clean; it genuinely feels like a brand-new car again.</p>
+            <h3 class="client-name">MR GIFT MBOOZA</h3>
+        </div>
+    </div>
+</div>
+ 
+<footer>
+    <div class="footercontainer">
+        <div class="socielicon">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </div>
+    <div class="footerbottom">
+        <p>Copyright &copy;2025; Developed By <span class="developer">Gift Mbooza</span></p>
+    </div>
+</footer>
+
+<script>
+    function showsidebar(){
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.add('active');
+    }
+
+    function hidesidebar(){
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.remove('active');
+    }
+    
+    document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('sidebar');
+        const menuButton = document.querySelector('.menu-button');
+        
+        if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+            sidebar.classList.remove('active');
+        }
+    });
+</script>
+    
+</body>
+</html>

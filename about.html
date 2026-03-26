@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CARSPA</title>
+    <link rel="stylesheet" href="index.html">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+    
+        }
+
+     nav{
+    margin: auto;
+    background-color: #3333337b;
+    width: 100%;
+}
+ nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+nav li {
+    height: 50px;
+}
+nav a{
+    height: 100%;
+    padding:  0px 30px;
+    text-decoration: none;
+    display: flex;
+    font-size: 21px;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.955);
+   
+
+}
+nav a:hover{
+    background-color: rgb(129, 129, 129);
+}
+nav li:first-child{
+    margin-right: auto;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+
+.contact-info {
+ color: #6d02c4;
+ font-weight: bold;
+font-size: 30px;
+}
+.hero {
+ color: #6d02c4;
+ text-align: center;
+}
+.hero h1 {
+font-size: 3rem;
+margin-bottom: 1rem; 
+}
+.section {
+padding: 30px 50px;
+max-width: 1200px;
+margin: 0 auto;
+margin-bottom: 30px;
+}
+.section h2 {
+color: #6d02c4;
+font-size: 2.5rem;
+margin-bottom: 2rem;
+text-align: center;
+}
+.wanderers-section {
+background: antiquewhite;
+}
+.wanderers-content {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 3rem;
+align-items: center;
+}
+.wanderers-text h3 {
+color: #6d02c4;
+font-size: 2rem;
+margin-bottom: 1.5rem;
+}
+.wanderers-text p {
+ margin-bottom: 1.5rem;
+font-size: 1.1rem;
+color: #555;
+}
+.founder {
+margin-top: 2rem;
+font-style: italic;
+color: #6d02c4;
+}
+.founder-name {
+font-weight: bold;
+font-size: 1.2rem;
+}
+.image-container {
+position: relative;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.image-container img {
+ width: 100%;
+height: auto;
+display: block;
+        }
+
+        /*footer*/
+footer{
+background-color: antiquewhite;
+}     
+.footercontainer{
+width: 100%;
+padding:  8px 5px;
+}
+.socielicon {
+display: flex;
+justify-content: center;
+}
+.socielicon a i{
+font-size: 25px;
+opacity: 0.9;
+}
+.socielicon a{
+text-decoration: none;
+justify-content: center;
+display: flex;
+ padding: 10px;
+   margin: 10px;
+             
+             
+        }
+    .socielicon a:hover{
+        background-color: white;
+        transition: 0.5s;
+        border-radius: 5px;
+    }
+    .footerbottom{
+        background-color: rgb(187, 173, 173);
+        padding: 20px;
+        text-align: center;
+    }
+    .footerbottom p{
+        color: white;
+    }
+    .developer{
+        opacity: 0.7;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 400;
+        margin: 0px 5px;
+    }
+     
+
+
+        @media (max-width: 968px) {
+            .wanderers-content, .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+     <nav>
+    <ul>
+        <li><a href="">GM || Wash</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+ </nav>
+
+    <div class="hero">
+        <h1>About Gm || Car Wash</h1>
+    </div>
+
+    <section class="section wanderers-section">
+        <div class="wanderers-content">
+            <div class="wanderers-text">
+                <h3> Gm Car Wash </h3>
+                <p>Gm as a hand carwash operation was started over 3 years ago by Gift Mbooza.</p>
+                
+                <p>He has been in the carwash industry for the same number of years and is passionate about five star service with hands on approach, using the best quality machinery and some team members that have been with Gm from the start, 3 years.</p>
+                
+                <p>We continuously invest in the latest car wash technology and premium products to deliver outstanding results for every vehicle we service.</p>
+                
+                <div class="founder">
+                    <p class="founder-name">Gift Mbooza</p>
+                    <p>Founder of the company</p>
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <img src="ABOUT22.avif" alt="">
+            </div>
+        </div>
+    </section>
+
+      <footer>
+    <div class="footercontainer">
+        <div class="socielicon">
+            <a href=""><i class="fa-brands fa-facebook" ></i></a>
+            <a href=""><i class="fa-brands fa-instagram" ></i></a>
+            <a href=""><i class="fa-brands fa-youtube" ></i></a>
+            <a href=""><i class="fa-brands fa-twitter" ></i></a>
+        </div>
+
+    </div>
+    <div class="footerbottom">
+            <p>Copyright &copy;2025; Developed By <span class="developer"> Gift Mbooza</span></p>
+        </div>
+</footer>
+
+</body>
+</html>
